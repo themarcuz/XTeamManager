@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xlns.XTM.Web", "Xlns.XTM.Web\Xlns.XTM.Web.csproj", "{C70242E2-C647-495C-AD9D-79C04A114297}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibs", "ExternalLibs", "{14CD01F9-F327-4235-9DC9-6806002E42AB}"
+	ProjectSection(SolutionItems) = preProject
+		ExternalLibs\Iesi.Collections.dll = ExternalLibs\Iesi.Collections.dll
+		ExternalLibs\log4net.dll = ExternalLibs\log4net.dll
+		ExternalLibs\NHibernate.dll = ExternalLibs\NHibernate.dll
+		ExternalLibs\NLog.dll = ExternalLibs\NLog.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{1BD5D107-4D38-4867-A2CC-1C60FA3262F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{7818768C-7EF6-478F-B483-6A91C2A21E51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xlns.XTM.ConfigurationManager", "Xlns.XTM.ConfigurationManager\Xlns.XTM.ConfigurationManager.csproj", "{63777C79-56F6-486C-87C1-14BDAA69CAB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xlns.ConfigurationManager", "Xlns.ConfigurationManager\Xlns.ConfigurationManager.csproj", "{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xlns.XTM.Core", "Xlns.XTM.Core\Xlns.XTM.Core.csproj", "{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{C70242E2-C647-495C-AD9D-79C04A114297}.Test|Any CPU.Build.0 = Release|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8}.Test|Any CPU.Build.0 = Release|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}.Test|Any CPU.Build.0 = Test|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}.Test|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{63777C79-56F6-486C-87C1-14BDAA69CAB8} = {1BD5D107-4D38-4867-A2CC-1C60FA3262F5}
+		{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C} = {1BD5D107-4D38-4867-A2CC-1C60FA3262F5}
+		{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D} = {1BD5D107-4D38-4867-A2CC-1C60FA3262F5}
+		{C70242E2-C647-495C-AD9D-79C04A114297} = {7818768C-7EF6-478F-B483-6A91C2A21E51}
+	EndGlobalSection
+EndGlobal
