@@ -37,6 +37,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\ExternalLibs\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -138,6 +141,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xlns.ConfigurationManager\Xlns.ConfigurationManager.csproj">
+      <Project>{DEA9D5A7-9ED6-4B73-A56D-316AF4FDCF0C}</Project>
+      <Name>Xlns.ConfigurationManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xlns.XTM.ConfigurationManager\Xlns.XTM.ConfigurationManager.csproj">
+      <Project>{63777C79-56F6-486C-87C1-14BDAA69CAB8}</Project>
+      <Name>Xlns.XTM.ConfigurationManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xlns.XTM.Core\Xlns.XTM.Core.csproj">
+      <Project>{D3A9E6E1-5F32-4142-873A-478EAC3D7A3D}</Project>
+      <Name>Xlns.XTM.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
