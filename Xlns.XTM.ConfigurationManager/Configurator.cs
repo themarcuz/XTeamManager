@@ -74,6 +74,7 @@ namespace Xlns.XTM.ConfigurationManager
             }
         }
         public string connectionString { get { return base.getParameter("core.DAL.connectionString"); } }
-        
+
+        public string defaultStyle { get { return base.getParameter("core.web.defaultStyle"); } }
     }
 }

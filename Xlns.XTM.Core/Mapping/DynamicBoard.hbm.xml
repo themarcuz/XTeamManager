@@ -3,7 +3,7 @@
                    namespace="Xlns.XTM.Core.Model"
                    assembly="Xlns.XTM.Core" >
 
-  <class name="DynamiBoard" table="DynamiBoard">
+  <class name="DynamicBoard" table="DynamicBoard">
 
     <!-- Simple mappings -->
     <id name="Id">     

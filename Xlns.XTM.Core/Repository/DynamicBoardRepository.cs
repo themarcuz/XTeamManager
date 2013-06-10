@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Xlns.XTM.Core.Repository
 {
-    public class DynamicBoardRepository : CommonRepository, IRepository<Model.DynamicBoard>
+    internal class DynamicBoardRepository : CommonRepository, IRepository<Model.DynamicBoard>
     {
 
         public IQueryable<Model.DynamicBoard> GetAll()

@@ -22,11 +22,17 @@ namespace Xlns.XTM.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", // Nome route
-                "{controller}/{action}/{id}", // URL con parametri
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Valori predefiniti parametri
+                "List", // Nome route
+                "Board/{action}", // URL con parametri
+                new { controller = "Board", action = "List" } // Valori predefiniti parametri
             );
 
+            routes.MapRoute(
+                "Default", // Nome route
+                "{controller}/{action}/{id}", // URL con parametri
+                new { controller = "Board", action = "List", id = UrlParameter.Optional } // Valori predefiniti parametri
+            );
+            
         }
 
         protected void Application_Start()
@@ -35,6 +41,8 @@ namespace Xlns.XTM.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ConfigurationManager.Configurator.configFileName = AppDomain.CurrentDomain.BaseDirectory + @"Config\XTM.config";
         }
     }
 }
