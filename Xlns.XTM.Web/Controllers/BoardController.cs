@@ -10,6 +10,8 @@ namespace Xlns.XTM.Web.Controllers
 {
     public class BoardController : Controller
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        
         DynamicBoardManager dbm = new DynamicBoardManager();
 
         public ActionResult List()
@@ -18,10 +20,17 @@ namespace Xlns.XTM.Web.Controllers
             return View(boards);
         }
 
-        public void SaveTitle(int IdBoard, string Title)
+        public void SaveName(int Id, string Value)
         {
-            var board = dbm.GetById(IdBoard);
-            board.Name = Title;
+            var board = dbm.GetById(Id);
+            board.Name = Value;            
+            dbm.Save(board);
+        }
+
+        public void SaveDescription(int Id, string Value)
+        {
+            var board = dbm.GetById(Id);
+            board.Description = Value;
             dbm.Save(board);
         }
 

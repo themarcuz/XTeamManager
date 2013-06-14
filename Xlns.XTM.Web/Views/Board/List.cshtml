@@ -7,18 +7,26 @@
 {
     <div class="row-fluid">
         <div class="span6 offset3 hero-unit">
-            <div >
-                <h2 class="board-title" data-board-id="@board.Id">@board.Name</h2>
-                <input class="board-title-edit" data-board-id="@board.Id" type="text" value="@board.Name" >
+            <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Name" >
+                <h2 class="readonly-value">@board.Name</h2>
+                <div class="edit-area">
+                    <input class="editable-value send-on-cr big input-xxlarge" type="text" value="@board.Name" >
+                </div>
             </div>
-            <div>
-                <span>@board.Description</span>
+            <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Description" >
+                <span class="readonly-value">@board.Description</span>
+                <div class="edit-area">
+                    <textarea class="editable-value input-block-level" rows="3">@board.Description</textarea>
+                    <button class="btn btn-success btn-save">Save</button>
+                    <button class="btn btn-cancel">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
+    <span id="md"></span>
+    <span id="click"></span>
+    <span id="mu"></span>
 }
-
-
 @section scripts{
     <script src="@Url.Content("~/Content/scripts/board.list.js")" type="text/javascript"></script>
 }

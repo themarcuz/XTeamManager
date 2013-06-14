@@ -1,45 +1,81 @@
-﻿$(function () {
-    $('.board-title-edit')
-        .hide()
+﻿var preventBlurring = false;
+
+$(function () {
+    $('.editable-property .edit-area').hide();
+    $('.editable-property .edit-area .editable-value')
+        .keyup(function (event) {
+            var oldValue = $(this).parents('.editable-property').find('.readonly-value').text();
+            if (event.keyCode == 27) { //esc
+                $(this).blur();
+                $(this).val(oldValue);
+            }
+        });
+    $('.editable-property .edit-area .editable-value.send-on-cr')
         .keyup(function (event) {
             if (event.which == 13) { //enter
-                var boardId = $(this).attr('data-board-id');
-                var newtitle = $(this).val();
-                var titleElement = $(this).parent().find('.board-title');
-                var oldTitle = titleElement.text();
-                titleElement.text(newtitle);
-                SaveBoardTitle(boardId, newtitle, oldTitle);
-                $(this).blur();
-            }
-            if (event.keyCode == 27) { //esc
+                PersistUpdate(this);
                 $(this).blur();
             }
         });
-    $('.board-title').click(function () {
+    $('.editable-property .readonly-value').click(function () {
         $(this).hide();
-        $(this).parent().find('.board-title-edit')
-            .show()
-            .select();   //select all the text in textbox
+        $(this).parent('.editable-property').find('.edit-area')
+            .show()     //show all edit area
+            .find('.editable-value').select();   //select all the text in textbox
 
+        });
+    $('.editable-property .edit-area .btn-save')
+        .mousedown(function () {
+            preventBlurring = true;            
+        })
+        .click(function () {
+            var inputBox = $(this).parents('.edit-area').find('.editable-value');
+            PersistUpdate(inputBox);
+            preventBlurring = false;
+            inputBox.blur();
+        });
+    $('body').mouseup(function () {
+        preventBlurring = false;        
     })
-    $('.board-title-edit').blur(function () {
-        $(this).hide();
-        $(this).parent().find('.board-title').show();
-    })
+    $('.editable-property .edit-area .editable-value').blur(function () {
+        if (!preventBlurring) {
+            $(this).parents('.edit-area').hide();
+            $(this).parents('.editable-property').find('.readonly-value').show();
+        }
+    });
 })
 
-function SaveBoardTitle(id, title, oldTitle) {
-    //alert('si sta cercando di salvare il titolo "' + title + '" per la board ' + id);
+function PersistUpdate(editElement) {
+    var editablePropertyDiv = $(editElement).parents('.editable-property');
+    var readonlyElement = editablePropertyDiv.find('.readonly-value');
+    var oldValue = readonlyElement.text();
+    var id = editablePropertyDiv.attr('data-entity-id');
+    var newValue = $(editElement).val();
+    var entityName = editablePropertyDiv.attr('data-entity-name');
+    var propertyName = editablePropertyDiv.attr('data-property-name');
+    UpdateProperty(entityName, id, propertyName, newValue, oldValue, readonlyElement);
+}
+
+function UpdateProperty(entityName, id, propertyName, newValue, oldValue, readonlyElement) {
+    readonlyElement.text(newValue);
     $.ajax({
         type: 'POST',
-        url: "/Board/SaveTitle",
+        url: "/" + entityName + "/Save" + propertyName,
         cache: false,
-        data: { IdBoard: id, Title: title },
+        data: { Id: id, Value: newValue },
         context: $(this),
-        error: function () {
-            alert(errMsg);
-            var titleElement = $('h2.board-title[data-board-id=' + id + ']');
-            titleElement.text(oldTitle);
-            }
+        success: function () {
+            readonlyElement.switchClass("", "alert-success", 300).delay(300).switchClass("alert-success", "", 300);
+        },
+        error: function (errMsg) {
+            readonlyElement.text(oldValue);
+            readonlyElement.switchClass("", "alert-error", 300)
+                            .switchClass("alert-error", "", 300)
+                            .switchClass("", "alert-error", 300)
+                            .switchClass("alert-error", "", 300)
+                            .switchClass("", "alert-error", 300)
+                            .delay(500)
+                            .switchClass("alert-error", "", 300);
+        }
     });
 }
