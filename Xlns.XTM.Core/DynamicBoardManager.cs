@@ -31,8 +31,17 @@ namespace Xlns.XTM.Core
                     logger.ErrorException(msg, ex);
                     throw new Exception(msg, ex);
                 }
-            }
-            
+            }            
+        }
+
+        public Model.DynamicBoard GetById(int Id) 
+        {            
+            return dbr.GetById(Id);
+        }
+
+        public int Save(Model.DynamicBoard Board) 
+        {
+            return dbr.Save(Board);
         }
     }
 }

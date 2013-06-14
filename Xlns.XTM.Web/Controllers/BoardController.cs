@@ -10,15 +10,20 @@ namespace Xlns.XTM.Web.Controllers
 {
     public class BoardController : Controller
     {
-        //
-        // GET: /Board/
+        DynamicBoardManager dbm = new DynamicBoardManager();
 
         public ActionResult List()
         {
-            var dbm = new DynamicBoardManager();
             var boards = dbm.GetAll();
             return View(boards);
-        }       
+        }
+
+        public void SaveTitle(int IdBoard, string Title)
+        {
+            var board = dbm.GetById(IdBoard);
+            board.Name = Title;
+            dbm.Save(board);
+        }
 
     }
 }
