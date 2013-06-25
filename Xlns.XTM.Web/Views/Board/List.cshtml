@@ -3,30 +3,33 @@
 @{
     ViewBag.Title = "Boards";
 }
-@foreach (var board in Model)
-{
-    <div class="row-fluid">
-        <div class="span6 offset3 hero-unit">
-            <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Name" >
-                <h2 class="readonly-value">@board.Name</h2>
-                <div class="edit-area">
-                    <input class="editable-value send-on-cr big input-xxlarge" type="text" value="@board.Name" >
+<div class="container-fluid"> 
+    @foreach (var board in Model)
+    {
+        <div class="row-fluid">
+            <div class="span6 offset3 hero-unit board-tile" data-board-id="@board.Id">
+                <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Name" >
+                    <h2 class="readonly-value">@board.Name</h2>
+                    <div class="edit-area">
+                        <input class="editable-value send-on-cr big input-xxlarge" type="text" value="@board.Name" >
+                    </div>
                 </div>
-            </div>
-            <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Description" >
-                <span class="readonly-value">@board.Description</span>
-                <div class="edit-area">
-                    <textarea class="editable-value input-block-level" rows="3">@board.Description</textarea>
-                    <button class="btn btn-success btn-save">Save</button>
-                    <button class="btn btn-cancel">Cancel</button>
+                <div class="editable-property" data-entity-name="Board" data-entity-id="@board.Id" data-property-name="Description" >
+                    <span class="readonly-value">@board.Description</span>
+                    <div class="edit-area">
+                        <textarea class="editable-value input-block-level" rows="3">@board.Description</textarea>
+                        <button class="btn btn-success btn-save">Save</button>
+                        <button class="btn btn-cancel">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <span id="md"></span>
-    <span id="click"></span>
-    <span id="mu"></span>
-}
+        <span id="md"></span>
+        <span id="click"></span>
+        <span id="mu"></span>
+    }
+</div>
 @section scripts{
+    <script src="@Url.Content("~/Content/scripts/editable.property.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/scripts/board.list.js")" type="text/javascript"></script>
 }
