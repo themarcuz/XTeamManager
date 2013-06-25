@@ -20,6 +20,13 @@ namespace Xlns.XTM.Web.Controllers
             return View(boards);
         }
 
+        public ActionResult Detail(int Id, int? IdPerspective = null)
+        {
+            var board = dbm.GetById(Id);
+            return View(board);
+        }
+
+        [HttpPost]
         public void SaveName(int Id, string Value)
         {
             var board = dbm.GetById(Id);
@@ -27,6 +34,7 @@ namespace Xlns.XTM.Web.Controllers
             dbm.Save(board);
         }
 
+        [HttpPost]
         public void SaveDescription(int Id, string Value)
         {
             var board = dbm.GetById(Id);

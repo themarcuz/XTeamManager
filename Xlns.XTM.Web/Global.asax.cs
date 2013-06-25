@@ -27,6 +27,12 @@ namespace Xlns.XTM.Web
                 new { controller = "Board", action = "List" } // Valori predefiniti parametri
             );
 
+            routes.MapRoute("DettaglioViaggio", // Route name
+                "Board/Detail/{Id}/{IdPerspective}", // URL with parameters
+                new {controller = "Board", action = "Detail",
+                     Id = UrlParameter.Optional, IdPerspective = UrlParameter.Optional} // Parameter defaults
+            );
+
             routes.MapRoute(
                 "Default", // Nome route
                 "{controller}/{action}/{id}", // URL con parametri

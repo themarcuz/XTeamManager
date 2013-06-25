@@ -35,8 +35,25 @@ namespace Xlns.XTM.Core
         }
 
         public Model.DynamicBoard GetById(int Id) 
-        {            
-            return dbr.GetById(Id);
+        {
+            using (var om = new OperationManager())
+            {
+                try
+                {
+                    var session = om.BeginOperation();
+                    var board = dbr.GetById(Id);                    
+                    om.CommitOperation();
+                    return board;
+                }
+                catch (Exception ex)
+                {
+                    om.RollbackOperation();
+                    string msg = String.Format("Error {0}", null);
+                    logger.ErrorException(msg, ex);
+                    throw new Exception(msg, ex);
+                }
+            }
+            
         }
 
         public int Save(Model.DynamicBoard Board) 

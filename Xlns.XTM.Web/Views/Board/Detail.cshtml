@@ -1,0 +1,57 @@
+﻿@model Xlns.XTM.Core.Model.DynamicBoard
+@{
+    ViewBag.Title = "Detail";
+}
+<div id="hidden-element-templates">
+    <div id="card-template">
+        <div class="card" data-saved="false">
+            <span>new card</span>
+            <div>
+                <span><a class="save-card-edit">save</a></span> <span class="pull-right"><a class="cancel-card-edit">
+                    cancel</a></span>
+            </div>
+        </div>
+    </div>
+    <div id="list-template">
+        <div class="span4 well well-small rounded-edge close-span list-container" data-list-id="">
+            <div class="row-fluid">
+                <span class="list-title span8">new list</span> 
+                <span class="span4">
+                    <span class="pull-right"><a class="new-card">new...</a></span>
+                </span>
+            </div>
+            <div class="card-list">
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid board-container fill" style="padding: 0px;">
+    <div style="padding-top: 10px;">
+        <span class="main-board-title">Board name</span> <span>perspective</span>
+    </div>
+    <div class="container-fluid label-info rounded-edge board-central">
+        <div class="span4 well well-small rounded-edge close-span list-container" data-list-id="1">
+            <div class="row-fluid">
+                <span class="list-title span8">prima lista</span> <span class="span4 ">
+                
+            </div>
+            <div class="card-list">
+                <div class="card">
+                    <span>Card1</span>
+                </div>
+                <div class="card">
+                    <span>Card2</span>
+                </div>
+            </div> 
+            <span >
+                    <a class="new-card">new...</a></span></span>           
+        </div>        
+        <div class="span2 well well-small rounded-edge close-span new-list-box">
+            <a class="new-list-command">new list...</a>
+        </div>       
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Content/scripts/board.detail.js")" type="text/javascript"></script>
+}
